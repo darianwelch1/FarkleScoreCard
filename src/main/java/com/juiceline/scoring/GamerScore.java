@@ -5,6 +5,7 @@
  */
 package com.juiceline.scoring;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -13,9 +14,12 @@ import java.util.List;
  */
 public class GamerScore {
     private String name;
-    private List score;
+    private LinkedList<Integer> score;
     
-    public GamerScore(String name, List score) {
+    public GamerScore(){
+    }
+    
+    public GamerScore(String name, LinkedList score) {
         this.name = name;
         this.score = score;
         
@@ -29,11 +33,11 @@ public class GamerScore {
         this.name = name;
     }
 
-    public List getScore() {
+    public List<Integer> getScore() {
         return score;
     }
 
-    public void setScore(List score) {
+    public void setScore(LinkedList<Integer> score) {
         this.score = score;
     }
     

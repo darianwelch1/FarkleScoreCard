@@ -3,10 +3,10 @@ package com.juiceline.farklescoring;
 import java.io.IOException;
 import javafx.fxml.FXML;
 
-public class SecondaryController {
+public class ScoreScreenController {
 
     @FXML
     private void switchToPrimary() throws IOException {
-        App.setRoot("primary");
+        App.setRoot("startScreen");
     }
 }
