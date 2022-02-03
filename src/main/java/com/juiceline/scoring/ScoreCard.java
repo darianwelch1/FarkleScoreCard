@@ -13,11 +13,11 @@ import java.util.*;
  * @author darianwelch
  */
 public class ScoreCard {
-    LinkedList<Integer> row = new LinkedList<>();
+    private static LinkedList<Integer> row = new LinkedList<>();
+    private static GamerScore gamer;
+    private static ArrayList<GamerScore> scorecard = new ArrayList<>();
     
-    ArrayList<GamerScore> scorecard;
-    
-    public ScoreCard() {
+    public static void makeRowHeader() {
         scorecard = new ArrayList<>();
         for(int i=1; i<=20;i++){
             row.add(i);
@@ -27,15 +27,16 @@ public class ScoreCard {
         
     }
     
-    public void addGamer(GamerScore g){
+    public static void addGamer(GamerScore g){
         scorecard.add(g);
     }
     
-    public GamerScore getGamer(String name){
-        GamerScore gamer=new GamerScore();
+    public static GamerScore getGamer(String name){
+        gamer=new GamerScore();
+        String gamerName = name;
         boolean found = false;
         for(int i = 0; i < scorecard.size(); i++){
-            if (scorecard.get(i).getName().equals(name)){
+            if (scorecard.get(i).getName().equals(gamerName)){
                 gamer=scorecard.get(i);
                 found = true;
             }
