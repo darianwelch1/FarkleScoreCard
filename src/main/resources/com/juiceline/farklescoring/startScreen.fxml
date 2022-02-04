@@ -43,6 +43,14 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </Button>
+                        <Button fx:id="removeName" mnemonicParsing="false" onAction="#removeNameButtonClick" text="Remove Selected Name" wrapText="true">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Button>
                      </children>
                   </VBox>
                   <ListView fx:id="nameEntry" editable="true" prefHeight="200.0" prefWidth="200.0" />

@@ -6,6 +6,7 @@
 package com.juiceline.scoring;
 
 import java.util.*;
+import javafx.collections.ObservableList;
 
 
 /**
@@ -19,24 +20,29 @@ public class ScoreCard {
     
     public static void makeRowHeader() {
         scorecard = new ArrayList<>();
-        for(int i=1; i<=20;i++){
+        for(Integer i=1; i<=20;i++){
             row.add(i);
+            System.out.println("Row Header: "+ i);
         }
         GamerScore rowHeader = new GamerScore("Name",row);
+        System.out.println("rowHeader name: "+rowHeader.getName());
+        for(Integer i : rowHeader.getScore())System.out.print("row numbs: "+rowHeader.getScore().get(i-1)+",");
+        System.out.println("making of row header: ");
         scorecard.add(rowHeader);
+        
         
     }
     
     public static void addGamer(GamerScore g){
+        if(scorecard.isEmpty())makeRowHeader();
         scorecard.add(g);
     }
     
     public static GamerScore getGamer(String name){
         gamer=new GamerScore();
-        String gamerName = name;
         boolean found = false;
         for(int i = 0; i < scorecard.size(); i++){
-            if (scorecard.get(i).getName().equals(gamerName)){
+            if (scorecard.get(i).getName().equals(name)){
                 gamer=scorecard.get(i);
                 found = true;
             }
@@ -47,6 +53,18 @@ public class ScoreCard {
         }
         return gamer;
     }
+    
+    public static void addGamer(ObservableList<GamerScore> gamer) {
         
+        for(GamerScore g : gamer){
+            scorecard.add(g);
+        }
+    }
+        
+    public static ArrayList<GamerScore> getScoreList() {
+        return scorecard;
+    }
+    
+  
     
 }
