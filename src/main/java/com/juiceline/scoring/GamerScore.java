@@ -5,8 +5,9 @@
  */
 package com.juiceline.scoring;
 
-import java.util.LinkedList;
-import java.util.List;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -14,17 +15,17 @@ import java.util.List;
  */
 public class GamerScore {
     private String name;
-    private LinkedList<Integer> score;
+    private ObservableList<Integer> score = FXCollections.observableArrayList();
     
     public GamerScore(){
     }
     
     public GamerScore(String name) {
         this.name = name;
-        score = new LinkedList<>();
+        //score = new FXCollections.observableArrayList<>();
     }
     
-    public GamerScore(String name, LinkedList score) {
+    public GamerScore(String name, ObservableList<Integer> score) {
         this.name = name;
         this.score = score;
         
@@ -38,11 +39,14 @@ public class GamerScore {
         this.name = name;
     }
 
-    public List<Integer> getScore() {
+    public ObservableList<Integer> getScore() {
+        return score;
+    }
+    public ObservableList<Integer> scoreproperty() {
         return score;
     }
 
-    public void setScore(LinkedList<Integer> score) {
+    public void setScore(ObservableList<Integer> score) {
         this.score = score;
     }
     
@@ -50,8 +54,8 @@ public class GamerScore {
     public void printToConsole(){
         System.out.print("\n");
         System.out.println("Gamer name: " + this.name);
-        for(Integer i : this.score){ 
-            int index = i-1;
+        for(int i = 0; i<score.size(); i++){ 
+            int index = i;
             System.out.print(this.score.get(index) + " ");
         }
         System.out.print("\n");
