@@ -62,6 +62,12 @@ public class GamerScore {
         
     }
     
+    public Integer totalScore(){
+        Integer ts = 0;
+        for(int i : score)ts = ts + score.get(i);
+        return ts;
+    }
+    
 
 }
     

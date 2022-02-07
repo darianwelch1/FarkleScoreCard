@@ -1,6 +1,5 @@
 com/juiceline/farklescoring/ScoreScreenController.class
 com/juiceline/scoring/ScoreCard.class
-com/juiceline/farklescoring/ScoreScreenController$1.class
 module-info.class
 com/juiceline/farklescoring/App.class
 com/juiceline/scoring/GamerScore.class

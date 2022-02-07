@@ -73,7 +73,9 @@ public class StartScreenController implements Initializable{
         //ScoreCard.makeRowHeader();  //Changed to being built in adGamer() method
         int p = 0;
         for(String name : playerNames){
-            GamerScore g = new GamerScore(name);
+            ObservableList<Integer> score = FXCollections.observableArrayList();
+            score.add(0);
+            GamerScore g = new GamerScore(name, score);
             ScoreCard.addGamer(g);
             g.printToConsole();
         }
@@ -118,6 +120,11 @@ public class StartScreenController implements Initializable{
         
     }
     
-    
-    
+    private void buildListViews() {
+        for(GamerScore g : ScoreCard.getScoreList()) {
+            ListView<Integer> list = new ListView<>();
+            
+        }
+    }
+        
 }

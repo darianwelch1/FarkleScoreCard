@@ -41,14 +41,14 @@ public class ScoreCard {
     
     public static GamerScore getGamer(String name){
         gamer=new GamerScore();
-        boolean found = false;
-        for(int i = 0; i < scorecard.size(); i++){
-            if (scorecard.get(i).getName().equals(name)){
+        boolean found = false; // to determine if name is in list
+        for(int i = 0; i < scorecard.size(); i++){          // if there return name
+            if (scorecard.get(i).getName().equals(name)){       
                 gamer=scorecard.get(i);
                 found = true;
             }
         }
-        if(!found){ 
+        if(!found){                         // if not found, return nonname
             gamer.setName("NoName");
             System.out.println("Gamer score not found in score card");
         }
