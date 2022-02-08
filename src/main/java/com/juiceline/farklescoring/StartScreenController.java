@@ -74,7 +74,8 @@ public class StartScreenController implements Initializable{
         int p = 0;
         for(String name : playerNames){
             ObservableList<Integer> score = FXCollections.observableArrayList();
-            score.add(0);
+            Integer s = 100;
+            score.add(s);
             GamerScore g = new GamerScore(name, score);
             ScoreCard.addGamer(g);
             g.printToConsole();
@@ -85,14 +86,6 @@ public class StartScreenController implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("scoreScreen.fxml"));
         Scene scene = new Scene(loader.load());
         scorescreen.setScene(scene);
-        
-//        System.out.println("\nBuild score card ");
-//        System.out.println("player to add: "+player.getName());
-//        ScoreCard.addGamer(player);
-//        System.out.println("Score Card:");
-//        System.out.println("from scorecard: " + ScoreCard.getGamer(name).getName());
-        
-//        App.setRoot("scoreScreen");
                 
     }
 

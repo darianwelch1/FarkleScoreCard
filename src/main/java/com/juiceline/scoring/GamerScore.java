@@ -22,7 +22,6 @@ public class GamerScore {
     
     public GamerScore(String name) {
         this.name = name;
-        //score = new FXCollections.observableArrayList<>();
     }
     
     public GamerScore(String name, ObservableList<Integer> score) {
@@ -42,10 +41,7 @@ public class GamerScore {
     public ObservableList<Integer> getScore() {
         return score;
     }
-    public ObservableList<Integer> scoreproperty() {
-        return score;
-    }
-
+    
     public void setScore(ObservableList<Integer> score) {
         this.score = score;
     }
@@ -64,10 +60,17 @@ public class GamerScore {
     
     public Integer totalScore(){
         Integer ts = 0;
-        for(int i : score)ts = ts + score.get(i);
+        for(int i=0; i< score.size(); i++)ts = ts + score.get(i);
+        
+        System.out.println("Total Score is:" + ts);
+        System.out.println("Name called for total:" + name);
         return ts;
     }
     
+    public void enterScore(Integer i, int position){
+        if(score.isEmpty())score.add(i);
+        else score.add(i, position);
+    }
 
 }
     
