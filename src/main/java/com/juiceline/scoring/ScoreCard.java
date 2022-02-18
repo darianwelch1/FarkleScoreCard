@@ -6,6 +6,8 @@
 package com.juiceline.scoring;
 
 //import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -15,30 +17,34 @@ import javafx.collections.ObservableList;
  * @author darianwelch
  */
 public class ScoreCard {
-    private static ObservableList<Integer> row = FXCollections.observableArrayList();
-    private static GamerScore gamer;
+    private static List<ScoreList> cellData = new ArrayList<>(); 
     private static ObservableList<GamerScore> scorecard = FXCollections.observableArrayList();
+    private static ObservableList<String> names = FXCollections.observableArrayList();
     
-    public static void makeRowHeader() {
-        scorecard.clear();
-        for(Integer i=1; i<=20;i++){
-            row.add(i);
-            System.out.println("Row Header: "+ i);
-        }
-        GamerScore rowHeader = new GamerScore("Name",row);
-        System.out.println("rowHeader name: "+rowHeader.getName());
-        for(int i=0; i<rowHeader.getScore().size(); i++)System.out.print("row numbs: "+rowHeader.getScore().get(i)+",");
-        System.out.println("making of row header: ");
-        scorecard.add(rowHeader);
-        
-        
+    private static GamerScore gamer;
+    
+    public static void addGamerNames(ObservableList<String> namesList){
+        names = namesList;
     }
-    
-    public static void addGamer(GamerScore g){
+    public static void addGamer(String name){
         if(scorecard.isEmpty())makeRowHeader();
-        scorecard.add(g);
+        gamer = new GamerScore(name);
+//        gamer.addGamersScores();
+        scorecard.add(gamer);
+    }
+    public static void addScore(String name, ScoreList sL){
+        gamer = getGamer(name);
+        ScoreList newsL = new ScoreList();
+        newsL.setScore(sL.getScore());
+        gamer.setScore(newsL);
+    }
+    public static void editScore(GamerScore g, ScoreList sL, int index){
+        g.insertScore(sL, index);
     }
     
+    public static ObservableList<String> getNames(){
+        return names;
+    }
     public static GamerScore getGamer(String name){
         gamer=new GamerScore();
         boolean found = false; // to determine if name is in list
@@ -54,18 +60,44 @@ public class ScoreCard {
         }
         return gamer;
     }
-    
-    public static void addGamer(ObservableList<GamerScore> gamer) {
-        
-        for(GamerScore g : gamer){
-            scorecard.add(g);
-        }
-    }
-        
-    public static ObservableList<GamerScore> getScoreList() {
+    public static ObservableList<GamerScore> getScoreCardList() {
         return scorecard;
     }
+    public static Integer getTotalScore(GamerScore g){
+        return g.totalScore();
+    }
     
+    public static Integer checkFarkleCount(GamerScore g){
+        Integer farkle = 0;
+        int count = g.getFarkelCount();
+        count++;
+        if(count < 3){
+            g.setFarkelCount(count);
+        }else {
+            farkle = -300;
+            g.setFarkelCount(0);
+        }
+        System.out.println("Sending Integer: "+farkle);
+        return farkle;
+    }
+    public static void resetFarkleCount(GamerScore g){
+        g.setFarkelCount(0);
+    }
+    
+    public static void makeRowHeader() {
+        scorecard.clear();
+        for(Integer i=1; i<=20;i++){
+            ScoreList rH = new ScoreList();
+            rH.setScore(i);
+//            System.out.print("RowHeader ScoreList object added"+rH.toString());
+            cellData.add(rH);
+            // System.out.println("Row Header: "+ i);
+        }
+        GamerScore rowHeader = new GamerScore("Name",cellData);
+//        System.out.println("Making of cellData header object: ");
+//        rowHeader.printToConsole();
+        scorecard.add(rowHeader);
+    }
   
     
 }

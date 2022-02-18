@@ -8,6 +8,8 @@ package com.juiceline.scoring;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import com.juiceline.scoring.ScoreList;
+import java.util.List;
 
 /**
  *
@@ -15,62 +17,98 @@ import javafx.collections.ObservableList;
  */
 public class GamerScore {
     private String name;
-    private ObservableList<Integer> score = FXCollections.observableArrayList();
+    private ObservableList<ScoreList> score = FXCollections.observableArrayList();
+    private Integer totalScore;
+    private int farkelCount;
     
     public GamerScore(){
+        name = "noName";
+        score = null;
+        totalScore = 0;
+        farkelCount = 0;
     }
+
+   
+
     
     public GamerScore(String name) {
         this.name = name;
+        ScoreList sL = new ScoreList();
+        score.add(sL);
+        totalScore=0;
     }
-    
-    public GamerScore(String name, ObservableList<Integer> score) {
+    public GamerScore(String name, List<ScoreList> score) {
         this.name = name;
-        this.score = score;
-        
+        this.score.addAll(score);
     }
 
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
+    public int getFarkelCount() {
+        return farkelCount;
     }
-
-    public ObservableList<Integer> getScore() {
+    public ObservableList<ScoreList> getScore() {
         return score;
     }
     
-    public void setScore(ObservableList<Integer> score) {
-        this.score = score;
+    public void insertScore(ScoreList sL,int index){
+        score.set(index, sL);
     }
     
-   
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setFarkelCount(int farkelCount) {
+        this.farkelCount = farkelCount;
+    }
+    public void setScore(ScoreList s){
+        ScoreList sL = s;
+        int index = score.size();
+        System.out.println("Score sent to GamerScore to set: "+s.toString()
+            +"list length: "+score.size());
+        this.score.add(sL);
+    }
+    
     public void printToConsole(){
         System.out.print("\n");
         System.out.println("Gamer name: " + this.name);
         for(int i = 0; i<score.size(); i++){ 
-            int index = i;
-            System.out.print(this.score.get(index) + " ");
+            System.out.print(this.score.get(i).toString() + " ");
         }
         System.out.print("\n");
-        
     }
     
     public Integer totalScore(){
-        Integer ts = 0;
-        for(int i=0; i< score.size(); i++)ts = ts + score.get(i);
-        
-        System.out.println("Total Score is:" + ts);
-        System.out.println("Name called for total:" + name);
-        return ts;
+        int ts = 0;
+        for(int i=0; i< score.size(); i++)ts = ts + score.get(i).getScore().intValue();
+        totalScore = (Integer)ts;
+//        System.out.println("Total Score is:" + totalScore);
+//        System.out.println("Name called for total:" + name);
+        return totalScore;
     }
     
-    public void enterScore(Integer i, int position){
-        if(score.isEmpty())score.add(i);
-        else score.add(i, position);
+    private void sumOfArray(ObservableList<ScoreList> list){
+//        System.out.println("Name scorelist: "+name);
+        int add =0;
+        for(ScoreList sL : list){
+            add = add + sL.getScore();
+//            System.out.println("Score = "+sL.getScore());
+        }
+//        System.out.println("total: "+add);
     }
-
+    
+    private void addGamersScores() {
+        System.out.println("\n\nAdding scores to players: \n");
+        
+        
+            int[] numbs = {500,300,1500,450};
+            ScoreList sL = new ScoreList();
+            for(int i=0; i<numbs.length; i++){
+                sL.setScore(numbs[i]);
+                score.add(sL);
+            }    
+     }
+    
 }
     

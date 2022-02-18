@@ -2,6 +2,7 @@ package com.juiceline.farklescoring;
 
 import com.juiceline.scoring.GamerScore;
 import com.juiceline.scoring.ScoreCard;
+import com.juiceline.scoring.ScoreList;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -38,7 +39,7 @@ public class StartScreenController implements Initializable{
     private ListView<String> nameEntry;
     
     @FXML
-    private Button AddNameButton;
+    private Button addplayerNameButton;
     @FXML
     private TextArea bottomTextBox;
     @FXML
@@ -55,34 +56,19 @@ public class StartScreenController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         // clear list to ensure empty
         playerNames.clear();
-        // This is supposed to make list editable but is not working 
-        nameEntry.setEditable(true);
+//        nameEntry.setEditable(true); // Not using this feature at this time.  Dont work.... 
         playerNames.add("Joe Bob");
-        // This was supposed to create wrapper and bind to ListView
-//        ReadOnlyObjectProperty<ObservableList<String>> listProperties = 
-//                new SimpleObjectProperty<>(FXCollections.observableArrayList());
-//        listProperties.get().addAll(playerNames);
-//        nameEntry.itemsProperty().bind(listProperties);
         nameEntry.setItems(playerNames);
-//        System.out.println("Is this editable? " + nameEntry.editableProperty().toString());
     }
 
     @FXML
     private void buildScoreCardAction(ActionEvent event) throws IOException {
         Stage scorescreen = (Stage) ((Node)event.getSource()).getScene().getWindow();
         //ScoreCard.makeRowHeader();  //Changed to being built in adGamer() method
-        int p = 0;
-        for(String name : playerNames){
-            ObservableList<Integer> score = FXCollections.observableArrayList();
-            Integer s = 100;
-            score.add(s);
-            GamerScore g = new GamerScore(name, score);
-            ScoreCard.addGamer(g);
-            g.printToConsole();
-        }
+       
+        for(String name : playerNames)ScoreCard.addGamer(name);
         
-        GamerScore header = ScoreCard.getGamer("Name");
-        header.printToConsole();
+        ScoreCard.addGamerNames(playerNames);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("scoreScreen.fxml"));
         Scene scene = new Scene(loader.load());
         scorescreen.setScene(scene);
@@ -104,7 +90,7 @@ public class StartScreenController implements Initializable{
     @FXML
     private void removeNameButtonClick(ActionEvent event) {
         // Removes selected name after checking is selection is made
-        System.out.println("index selected:" + nameEntry.getSelectionModel().getSelectedIndex());
+//        System.out.println("index selected:" + nameEntry.getSelectionModel().getSelectedIndex());
         if(nameEntry.getSelectionModel().getSelectedIndex() >= 0){
             int i = nameEntry.getSelectionModel().getSelectedIndex();
             playerNames.remove(i);
@@ -113,11 +99,19 @@ public class StartScreenController implements Initializable{
         
     }
     
-    private void buildListViews() {
-        for(GamerScore g : ScoreCard.getScoreList()) {
-            ListView<Integer> list = new ListView<>();
-            
-        }
-    }
+//    private void addGamersScores() {
+//        System.out.println("\n\nAdding scores to players: \n");
+//        for(String name: playerNames) {
+//            int[] numbs = {500,300,1500,450};
+//            GamerScore g = ScoreCard.getGamer(name);
+//            ScoreList sL = new ScoreList();
+//            for(int i=0; i<numbs.length; i++){
+//                sL.setScore(numbs[i]);
+//                ScoreCard.addScore(name, sL);
+//                g.printToConsole();
+//                }
+//            
+//        }
+//    }
         
 }

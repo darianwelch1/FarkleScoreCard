@@ -11,9 +11,7 @@
    <children>
       <VBox prefWidth="800.0">
          <children>
-            <HBox fx:id="nameHbox" />
-            <HBox fx:id="scoreHbox" />
-            <HBox fx:id="listViewHbox" />
+            <HBox fx:id="cardHbox" />
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button fx:id="saveGameButton" mnemonicParsing="false" onAction="#saveGame" text="Save game">
