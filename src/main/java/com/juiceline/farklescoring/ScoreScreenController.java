@@ -10,7 +10,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -20,6 +23,7 @@ import javafx.scene.control.cell.TextFieldListCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 
@@ -42,9 +46,6 @@ public class ScoreScreenController implements Initializable{
     
    
    
-    @FXML
-    private void saveGame(ActionEvent event) {
-    }
 
     @FXML
     private void addPlayer(ActionEvent event) {
@@ -147,6 +148,15 @@ public class ScoreScreenController implements Initializable{
         list.getFocusModel().focus(list.getEditingIndex());
         list.edit(list.getEditingIndex());
                
+    }
+
+    @FXML
+    private void gameRulesButton(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesAndScore.fxml"));
+        Scene scene = new Scene(loader.load());
+        stage.setScene(scene);
+        stage.show();
     }
     
     class ScoreListCell extends ListCell<ScoreList>{

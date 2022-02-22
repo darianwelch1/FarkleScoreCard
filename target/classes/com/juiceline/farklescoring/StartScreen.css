@@ -1,0 +1,43 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 22, 2022, 6:09:49 PM
+    Author     : darianwelch
+*/
+
+.mainFxmlClass {
+    
+    -fx-label-padding:15;
+    -fx-border-color:darkblue;
+    -fx-border-width:2;
+}
+
+VBox{
+   -fx-background-color:burlywood;
+}
+
+HBox{
+   -fx-background-color:burlywood;
+}
+
+TextField{
+    -fx-font-size:12;
+    -fx-wrap-text:true;
+    -fx-text-fill:black;
+    -fx-border-width:0;
+    -fx-background-color:cornsilk;
+}
+
+ListView{
+    -fx-background-color:cornsilk;
+}
+
+Button{
+    -fx-font-size:12;
+    -fx-font-weight:bold;
+    -fx-blend-mode:hard-light;
+    -fx-effect:dropshadow(one-pass-box,black,50,.3,10,10);
+}

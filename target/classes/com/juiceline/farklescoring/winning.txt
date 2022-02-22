@@ -1,0 +1,1 @@
+Winning: When a player's accumulated score is 10,000 or more, each of the other players has one last turn to beat the total.  The player with the highest score wins.

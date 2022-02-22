@@ -1,0 +1,8 @@
+Set up:
+* Pick on player to be the score keeper.
+* All players roll one Die.  Whoever has the highest roll goes first with play passing to the left.
+* After each roll, set aside Dice that are worth points and roll the res of them.  You must remove at least on e Die after each roll and keep a running total of your points of that turn.
+* If you re lucky enough to set aside all six Dice, you can roll them all again to build your running total.
+* if you cannot set aside any Dice after a roll, that's a Farkle.  You lose yor running total of points for that turn and play passes the the left.  A Farkle could happen on your first roll or when you roll the remaining Dice.
+* To get on the score Pad for the first time. you must have a running total of 500 points before you stop rolling.
+* After your first score of 500 points or more is recorded, you may stop rolling at any time and have the scorekeeper add you running total for that turn to your accumulated score.  Once your points are entered on the Score Pad, they are safe, and you cannot lose them.

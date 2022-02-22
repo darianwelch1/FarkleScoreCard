@@ -1,0 +1,6 @@
+Farkle Facts:
+* Single 1s and 5s are worth points.
+* Other numbers count if you get three or more of the same number in a single roll.
+* Other combinations of numbers are worth points if you get them in a single roll.
+* Other combinations of numbers are worth points if you get them in a single Note: Dice from multiple rolls cannot be added together.  For example, if you set aside one 5(50 points) on you first roll and two 5s(100 points) on your second role, you have 150 points.  You cannot add them together to make three 5s (500 points).
+* Some scoring dice must be removed after every role.

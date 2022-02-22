@@ -1,0 +1,1 @@
+Object: Be the player with the highest score over 10,000.

@@ -1,11 +1,11 @@
 com/juiceline/scoring/ScoreCard.class
 com/juiceline/farklescoring/ScoreScreenController$1.class
-com/juiceline/farklescoring/App.class
 com/juiceline/farklescoring/StartScreenController.class
-com/juiceline/farklescoring/ScoreScreenController$1$1.class
-com/juiceline/scoring/ScoreList.class
 com/juiceline/farklescoring/ScoreScreenController.class
 com/juiceline/farklescoring/RulesAndScoreController.class
 module-info.class
-com/juiceline/scoring/GamerScore.class
 com/juiceline/farklescoring/ScoreScreenController$ScoreListCell.class
+com/juiceline/farklescoring/App.class
+com/juiceline/farklescoring/ScoreScreenController$1$1.class
+com/juiceline/scoring/ScoreList.class
+com/juiceline/scoring/GamerScore.class
