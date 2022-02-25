@@ -17,7 +17,7 @@ import javafx.collections.ObservableList;
  * @author darianwelch
  */
 public class ScoreCard {
-    private static List<ScoreList> cellData = new ArrayList<>(); 
+//    private static List<ScoreList> cellData = new ArrayList<>(); 
     private static ObservableList<GamerScore> scorecard = FXCollections.observableArrayList();
     private static ObservableList<String> names = FXCollections.observableArrayList();
     
@@ -25,18 +25,25 @@ public class ScoreCard {
     
     public static void addGamerNames(ObservableList<String> namesList){
         names = namesList;
+        
     }
     public static void addGamer(String name){
-        if(scorecard.isEmpty())makeRowHeader();
-        gamer = new GamerScore(name);
-//        gamer.addGamersScores();
-        scorecard.add(gamer);
+        String n = name;
+        if(!n.isBlank()){
+            if(scorecard.isEmpty())makeRowHeader();
+            gamer = new GamerScore(n);
+            ScoreList sl = new ScoreList();
+            gamer.setScore(sl);
+            scorecard.add(gamer);
+            gamer.printToConsole();
+        }else System.out.println("No name to add");
     }
     public static void addScore(String name, ScoreList sL){
         gamer = getGamer(name);
         ScoreList newsL = new ScoreList();
         newsL.setScore(sL.getScore());
         gamer.setScore(newsL);
+        
     }
     public static void editScore(GamerScore g, ScoreList sL, int index){
         g.insertScore(sL, index);
@@ -85,19 +92,27 @@ public class ScoreCard {
     }
     
     public static void makeRowHeader() {
-        scorecard.clear();
-        for(Integer i=1; i<=20;i++){
+//        cellData.clear();
+        List<ScoreList> cellData = new ArrayList<>(); 
+        for(Integer i=1; i<=15;i++){
             ScoreList rH = new ScoreList();
             rH.setScore(i);
 //            System.out.print("RowHeader ScoreList object added"+rH.toString());
             cellData.add(rH);
-            // System.out.println("Row Header: "+ i);
+//            System.out.println("Row Header: "+ i);
         }
         GamerScore rowHeader = new GamerScore("Name",cellData);
-//        System.out.println("Making of cellData header object: ");
-//        rowHeader.printToConsole();
         scorecard.add(rowHeader);
+        rowHeader.printToConsole();
+        
     }
+    
+        
+    public static void resetGame(){
+        scorecard.clear();
+    }
+    
+    
   
     
 }

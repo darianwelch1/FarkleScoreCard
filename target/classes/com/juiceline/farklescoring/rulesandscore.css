@@ -13,13 +13,27 @@ VBox{
    -fx-background-color:burlywood;
 }
 
-TextField{
-    -fx-font-size:12;
+TextField  {
+    -fx-font-size:14;
     -fx-wrap-text:true;
     -fx-text-fill:black;
     -fx-border-width:0;
     -fx-background-color:cornsilk;
+    -fx-blend-mode:hard-light;
+   -fx-effect:innershadow(one-pass-box,black,20,.1,5,5);
 }
+
+Label {
+    -fx-font-size:14;
+    -fx-font-weight:bold;
+    -fx-wrap-text:true;
+    -fx-text-fill:black;
+    -fx-border-width:0;
+    -fx-background-color:cornsilk;
+    -fx-blend-mode:hard-light;
+    -fx-effect:innershadow(one-pass-box,black,20,.1,5,5);
+}
+
 
 
 #TitleField{
@@ -34,4 +48,11 @@ Button{
     -fx-font-weight:bold;
     -fx-blend-mode:hard-light;
     -fx-effect:dropshadow(one-pass-box,black,50,.3,10,10);
+    
+}
+
+ListView{
+    -fx-background-color:cornsilk;
+    -fx-blend-mode:hard-light;
+    -fx-effect:innershadow(one-pass-box,black,20,.1,5,5);
 }

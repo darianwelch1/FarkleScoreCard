@@ -21,8 +21,14 @@
             </TextField>
             <HBox styleClass="mainFxmlClass">
                <children>
-                  <VBox fx:id="ruleVbox" prefWidth="600.0" />
-                  <VBox fx:id="scoreVbox" prefWidth="600.0" />
+                  <VBox fx:id="ruleVbox" prefWidth="800.0">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
+                     </HBox.margin></VBox>
+                  <VBox fx:id="scoreVbox" prefWidth="400.0">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                     </HBox.margin></VBox>
                </children>
             </HBox>
             <Button fx:id="closeButton" alignment="CENTER" mnemonicParsing="false" onAction="#closeButtonClick" prefHeight="80.0" prefWidth="150.0" text="Close">

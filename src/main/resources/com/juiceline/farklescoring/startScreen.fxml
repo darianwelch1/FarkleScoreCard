@@ -4,22 +4,27 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@StartScreen.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juiceline.farklescoring.StartScreenController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@rulesandscore.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juiceline.farklescoring.StartScreenController">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0">
+      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="700.0">
          <children>
-            <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Farkle Scoring Application" />
+            <Label id="TitleField" alignment="TOP_CENTER" contentDisplay="CENTER" text="Farkle Scoring Application">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding></Label>
             <HBox alignment="TOP_CENTER">
                <children>
-                  <VBox alignment="TOP_CENTER">
+                  <VBox alignment="CENTER_LEFT">
                      <children>
-                        <Label fx:id="nameTextBox" text="Enter the Gamers Name." wrapText="true">
+                        <Label fx:id="nameTextBox" prefWidth="300.0" text="Enter the Players Name." wrapText="true">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -27,7 +32,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="nameTextField">
+                        <TextField id="NameEntry" fx:id="nameTextField" maxWidth="300.0">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
@@ -35,7 +40,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </TextField>
-                        <Button fx:id="addNameButton" mnemonicParsing="false" onAction="#udpateNameList" text="Add Name">
+                        <Button fx:id="addNameButton" mnemonicParsing="false" onAction="#udpateNameList" prefWidth="300.0" text="Click to Add Name">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
@@ -43,7 +48,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="removeName" mnemonicParsing="false" onAction="#removeNameButtonClick" text="Remove Selected Name" wrapText="true">
+                        <Button fx:id="removeName" mnemonicParsing="false" onAction="#removeNameButtonClick" prefWidth="300.0" text="Click to Remove Name" wrapText="true">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
@@ -53,15 +58,10 @@
                         </Button>
                      </children>
                   </VBox>
-                  <ListView fx:id="nameEntry" editable="true" prefHeight="200.0" prefWidth="200.0" />
-                  <Button fx:id="addplayerNameButton" alignment="CENTER" mnemonicParsing="false" onAction="#buildScoreCardAction" text="Add Player Names and Make Score Card" wrapText="true">
+                  <ListView fx:id="nameEntry" editable="true" prefHeight="200.0" prefWidth="200.0">
                      <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </Button>
+                        <Insets bottom="20.0" left="40.0" right="20.0" top="20.0" />
+                     </HBox.margin></ListView>
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -70,7 +70,14 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
             </HBox>
-            <TextArea fx:id="bottomTextBox" prefHeight="200.0" prefWidth="200.0" />
+            <Button fx:id="addplayerNameButton" alignment="CENTER" mnemonicParsing="false" onAction="#buildScoreCardAction" text="Play Farkle" wrapText="true">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </Button>
          </children></VBox>
    </children>
 </StackPane>

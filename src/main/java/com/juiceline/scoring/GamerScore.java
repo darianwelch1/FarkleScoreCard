@@ -23,6 +23,7 @@ public class GamerScore {
     
     public GamerScore(){
         name = "noName";
+        
         score = null;
         totalScore = 0;
         farkelCount = 0;
@@ -65,8 +66,8 @@ public class GamerScore {
     public void setScore(ScoreList s){
         ScoreList sL = s;
         int index = score.size();
-        System.out.println("Score sent to GamerScore to set: "+s.toString()
-            +"list length: "+score.size());
+//        System.out.println("Score sent to GamerScore to set: "+s.toString()
+//            +"list length: "+score.size());
         this.score.add(sL);
     }
     
@@ -87,28 +88,5 @@ public class GamerScore {
 //        System.out.println("Name called for total:" + name);
         return totalScore;
     }
-    
-    private void sumOfArray(ObservableList<ScoreList> list){
-//        System.out.println("Name scorelist: "+name);
-        int add =0;
-        for(ScoreList sL : list){
-            add = add + sL.getScore();
-//            System.out.println("Score = "+sL.getScore());
-        }
-//        System.out.println("total: "+add);
-    }
-    
-    private void addGamersScores() {
-        System.out.println("\n\nAdding scores to players: \n");
-        
-        
-            int[] numbs = {500,300,1500,450};
-            ScoreList sL = new ScoreList();
-            for(int i=0; i<numbs.length; i++){
-                sL.setScore(numbs[i]);
-                score.add(sL);
-            }    
-     }
-    
 }
     

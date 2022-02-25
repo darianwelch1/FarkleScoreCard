@@ -56,6 +56,7 @@ public class StartScreenController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         // clear list to ensure empty
         playerNames.clear();
+        ScoreCard.resetGame();
 //        nameEntry.setEditable(true); // Not using this feature at this time.  Dont work.... 
         playerNames.add("Joe Bob");
         nameEntry.setItems(playerNames);
@@ -66,17 +67,25 @@ public class StartScreenController implements Initializable{
         Stage scorescreen = (Stage) ((Node)event.getSource()).getScene().getWindow();
         //ScoreCard.makeRowHeader();  //Changed to being built in adGamer() method
        
-        for(String name : playerNames)ScoreCard.addGamer(name);
+        for(String name : playerNames){
+            ScoreCard.addGamer(name);
+//            System.out.println("Name to add to scorecard: " + name);
+        }
         
         ScoreCard.addGamerNames(playerNames);
+        System.out.println("Size of scorecard: " + ScoreCard.getScoreCardList().size());
+//        System.out.println("why: "+ScoreCard.getGamer("Name").getName());
+        
+//        for(GamerScore g:ScoreCard.getScoreCardList()){
+//            System.out.println("What");
+//            System.out.println("why: "+g.getName());
+//        }
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("scoreScreen.fxml"));
         Scene scene = new Scene(loader.load());
         scorescreen.setScene(scene);
                 
     }
-
-    
-    
 
     @FXML
     private void udpateNameList(ActionEvent event) {

@@ -1,9 +1,17 @@
 Score:
-Single 1 = 100    Four of any number(Except 1s) = 1000
-Single 5 = 50     Four 1's = 2000
-Three 1s = 1000   Five of any number = 2000
-Three 2s = 200    Six of any number = 3000
-Three 3s = 300    1 - 6 straight = 1500
-Three 4s = 400    Three pairs = 1500
-Three 5s = 500    Four of any number with a pair = 1500
-Three 6s = 600    Two triplets = 2500
+Single 1 = 100    
+Single 5 = 50     
+Three 1s = 1000 
+Three 2s = 200    
+Three 3s = 300    
+Three 4s = 400    
+Three 5s = 500    
+Three 6s = 600    
+Four of any number(Except 1s) = 1000
+Four 1's = 2000
+Five of any number = 2000
+Six of any number = 3000
+1 - 6 straight = 1500
+Three pairs = 1500
+Four of any number with a pair = 1500
+Two triplets = 2500
